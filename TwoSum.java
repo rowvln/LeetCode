@@ -7,19 +7,24 @@
  */
 
 class Solution {
-    public int[] twoSum(int[] nums, int target) {
-        // Create a HashMap to hold a calculated value
-        Map<Integer, Integer> map = new HashMap<>();
+    // Create a function that returns the indices of two numbers that add up to the target value
+    public int[] twoSum(int[] nums, int target){
+        // Create a Hashmap that holds a calculated value
+        Map<Integer, Integer> map = new Hashmap<>();
         
-        for(int i=0; i < nums.length; i++) {
+        // Find the complement of every number in the array and if it matches a number that has already been found, return the indices of both numbers
+        for(int i = 0; i < nums.length; i++){
+            // complement value
             int complement = target - nums[i];
             
+            // if found get the key-pair values for the complement
             if(map.containsKey(complement)){
-                return new int[]{map.get(complement), i};
+                return new int[]{ map.get((complement), i) };
             }
             
             map.put(nums[i], i);
         }
+        // If no complement is found, then throw an error that "No Two Sum Solutions Exist."
         throw new IllegalArgumentException("No Two Sum Solutions Exist.");
     }
 }
